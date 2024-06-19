@@ -10,10 +10,6 @@ BuyMeLocal is an Online Ecommerce Web Application made using **Angular** & **.NE
  * Can perform *CRUD* operations on Products tables.
 
 
-> Product Page
-
-![Screenshot (13)](https://user-images.githubusercontent.com/109417065/188799683-7e62081f-a545-4067-adda-0bb5e70fc0e1.png)
-
 > Login Page
 
 ![Screenshot (14)](https://user-images.githubusercontent.com/109417065/188799666-47aa29c2-bd99-4b4d-8b2f-4ce1940d13f9.png)
@@ -21,6 +17,11 @@ BuyMeLocal is an Online Ecommerce Web Application made using **Angular** & **.NE
 > Admin Page
 
 ![Screenshot (15)](https://user-images.githubusercontent.com/109417065/188799675-cfad432b-e3e5-4f52-b643-f68548883f2c.png)
+
+> Product Page
+
+![Screenshot (13)](https://user-images.githubusercontent.com/109417065/188799683-7e62081f-a545-4067-adda-0bb5e70fc0e1.png)
+
 ## Getting Started
 ### Prerequisites
 Download & install the below mentioned softwares -
