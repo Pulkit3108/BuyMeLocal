@@ -1,0 +1,43 @@
+
+<div class="row c1">
+  <div class="page-head h4">Register User</div>
+</div>
+
+<div class="login-form">
+
+  <!--<div class="avatar">
+    <img src="https://cdn2.iconfinder.com/data/icons/essenstial-ultimate-ui/64/avatar-512.png" alt="Avatar">
+  </div>-->
+
+  <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]="model.userName" placeholder="Username">
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]="model.firstName" placeholder="FirstName">
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]="model.lastName" placeholder="LastName">
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]="model.address" placeholder="Address">
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]="model.phoneNumber" placeholder="Phone">
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" [(ngModel)]="model.email" placeholder="Email">
+  </div>
+
+  <div class="form-group">
+    <input type="password" class="form-control" [(ngModel)]="model.password" placeholder="Password">
+  </div>
+
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary btn-lg btn-block" (click)="submit()">Register</button>
+  </div>
+</div>

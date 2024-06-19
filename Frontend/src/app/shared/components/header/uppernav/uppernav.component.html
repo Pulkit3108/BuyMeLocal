@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-sm navbar-contfirst">
+  <ul class="navbar-nav unav">
+    <li class="nav-item big_block">
+      <input autocomplete="off" type="text" class="form-control rounded search_bar" [(ngModel)]="searchString"
+        placeholder="Search" />
+      <button title="_blank" type="submit" class="rounded search_btn" (click)="submitSearch()"><i
+          class="fa fa-search"></i></button>
+    </li>
+
+
+    <li class="nav-item small_block">
+
+    </li>
+    <li class="nav-item small_block">
+      <a class="nav-link h6" *ngIf="(userLoggedIn.loginfo && userLoggedIn.loguser=='user')||(isLoggedIn)" routerLink="/wishlist"><i class="fa fa-heart" aria-hidden="true"></i> WishList</a>
+    </li>
+    <li class="nav-item small_block">
+      <a class="nav-link h6" *ngIf="(userLoggedIn.loginfo && userLoggedIn.loguser=='user')||(isLoggedIn)" routerLink="/cart"><i class="fa fa-shopping-cart "
+          style="font-size:22px"></i> Cart <sup class="power_cont">{{cartCount}}</sup></a>
+    </li>
+    <li class="nav-item small_block">
+      <a class="nav-link h6" *ngIf="(userLoggedIn.loginfo && userLoggedIn.loguser=='user')||(isLoggedIn)" routerLink="/account"><i style='font-size:24px'
+          class='fas'>&#xf2bd;</i>
+        User</a>
+    </li>
+
+    <li class="nav-item small_block">
+      <a class="nav-link h6" style="cursor: pointer;" *ngIf="(userLoggedIn.loginfo)||(isLoggedIn)" (click)="logout()">Sign Out</a>
+    </li>
+    <li class="nav-item small_block">
+      <a class="nav-link h6" *ngIf="!((userLoggedIn.loginfo)||(isLoggedIn))" routerLink="/login">Sign In</a>
+    </li>
+  </ul>
+</nav>

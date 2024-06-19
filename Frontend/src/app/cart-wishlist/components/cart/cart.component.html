@@ -1,0 +1,62 @@
+<div class="container-fluid mt-3 container-fullscreen-cont">
+  <div class="custome-head-cnt">
+    <div class="row c1">
+      <div class="page-head h4">Shopping Cart</div>
+    </div>
+
+
+<div class="container">
+  <div class="wrapper wrapper-content animated fadeInRight">
+      <div class="row">
+          <div class="col-md-9">
+              <div class="ibox">
+
+                <div *ngFor="let items of cartList">
+                    <app-cartelement (newItemEvent)="updateCarttotal($event)" [item]="items" (removiedId)="removeItem($event)"></app-cartelement>
+                </div>
+                  
+
+                  <div class="ibox-content">
+                      <button (click)="purchase()" class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i> Checkout</button>
+                      <a class="btn btn-white" routerLink="/allproducts"><i class="fa fa-arrow-left"></i> Continue shopping</a>
+
+                  </div>
+              </div>
+
+          </div>
+          <div class="col-md-3">
+              <div class="ibox">
+                  <div class="ibox-title">
+                      <h5>Cart Summary</h5>
+                  </div>
+                  <div class="ibox-content">
+                      <span>
+                          Total
+                      </span>
+                      <h2 class="font-bold">
+                        Rs: {{totalCartPrice}}
+                      </h2>
+
+                      <hr>
+                      <span class="text-muted small">
+                          *Available every where in India.
+                      </span>
+                      <div class="m-t-sm">
+                          <div class="btn-group">
+                          <a (click)="purchase()" routerLink="/order" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
+                          <a href="#" class="btn btn-white btn-sm"> Cancel</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+
+</div>
+</div>
+
+
+
+
