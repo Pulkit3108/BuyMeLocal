@@ -10,8 +10,7 @@ INSERT INTO [dbo].[User]
            ,[Email]
            ,[Password])
      VALUES
-           ('Genz-apoorv','Apoorv' ,'Srivastava','Bhiwadi',9950079254,'apoorv275799@gmail.com','Aps2799'),
-  ('Kdi-pulkit','Pulkit' ,'Mittal','kaithal',8572030250,'pulkit.mittal@kongsbergdigital.com','Pulkit2299'),
-  ('KSumit','Sumit' ,'Chaudhary','Barmer',6378436886,'sumit.k.choudhary@gmail.com','Sumit4455');
+           ('demo-user-1','Demo' ,'User','Example Street','0000000001','demo-user-1@example.test','demo-only-password-1'),
+  ('demo-user-2','Sample' ,'User','Example Street','0000000002','demo-user-2@example.test','demo-only-password-2'),
+  ('admin','Demo' ,'Administrator','Example Street','0000000003','admin@example.test','admin');
 GO
-

@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using ProductWebAPI.Models;
 
@@ -19,10 +20,12 @@ namespace ProductWebAPI.Controllers
     public class UsersController : ControllerBase
     {
         private readonly EcommerceContext _context;
+        private readonly IConfiguration _configuration;
 
-        public UsersController(EcommerceContext context)
+        public UsersController(EcommerceContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         // GET: api/Users
@@ -65,7 +68,12 @@ namespace ProductWebAPI.Controllers
             var userData = _context.Users.FirstOrDefault(u => u.UserName == user.UserName && u.Password == user.Password);
             if (userData != null)
             {
-                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("symmetricsecretkey$567"));
+                var jwtSigningKey = _configuration["Jwt:SigningKey"];
+                if (string.IsNullOrWhiteSpace(jwtSigningKey))
+                {
+                    return Problem("JWT signing key is not configured.", statusCode: StatusCodes.Status500InternalServerError);
+                }
+                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSigningKey));
                 var signingCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
                 var claims = new List<Claim>();
                 if(userData.UserName == "admin" && userData.Password == "admin")

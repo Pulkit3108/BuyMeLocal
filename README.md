@@ -1,57 +1,60 @@
 # BuyMeLocal
-BuyMeLocal is an Online Ecommerce Web Application made using **Angular** & **.NET**. It provides an easy-to-handle & automated system. It also provides various features & an interface for selling & buying local handloom products for user. The admin can easily update, delete & insert data in the database with this application.
-### Features
-> For User
-* Can Register & Login.
-* Can View Products & Add them to Cart or Wishlist.
-* Can Purchase Items that are in Cart.
-* Can View his Cart, Order History, &, Wishlist
-> For Admin
- * Can perform *CRUD* operations on Products tables.
 
+An educational full-stack marketplace for browsing and purchasing local handloom products.
 
-> Login Page
+> This is a learning project, not a production commerce system. Do not use it with real payment, customer, or credential data.
 
-![Screenshot (14)](https://user-images.githubusercontent.com/109417065/188799666-47aa29c2-bd99-4b4d-8b2f-4ce1940d13f9.png)
+## Features
 
-> Admin Page
+- Users can register, sign in, browse products, manage a cart and wishlist, place orders, and view order history.
+- Administrators can manage products.
 
-![Screenshot (15)](https://user-images.githubusercontent.com/109417065/188799675-cfad432b-e3e5-4f52-b643-f68548883f2c.png)
+## Screenshots
 
-> Product Page
+| Sign in | Admin | Products |
+| --- | --- | --- |
+| ![Sign-in screen](Docs/screenshots/sign-in.png) | ![Admin screen](Docs/screenshots/admin.png) | ![Product screen](Docs/screenshots/products.png) |
 
-![Screenshot (13)](https://user-images.githubusercontent.com/109417065/188799683-7e62081f-a545-4067-adda-0bb5e70fc0e1.png)
+## Structure
 
-## Getting Started
-### Prerequisites
-Download & install the below mentioned softwares -
-* Microsoft Visual Studio Community 2022 (64-bit) Version **17.3.0**
-* Microsoft SQL Server Management Studio Version **18.2.1**
-* .NET Framework Version **5.0.17**
-* Node.js Version **16.16.0**
-* Visual Studio Code **1.71.0**
+| Directory | Purpose |
+| --- | --- |
+| `Frontend/` | Angular 14 web application |
+| `ProductWebAPI/` | .NET 5 ASP.NET Core API |
+| `EcomDB Scripts/` | SQL Server schema and development fixture scripts |
 
-### Installation
-Install the below-mentioned packages inside your Visual Studio by navigating to 
-> **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution**
+## Run Locally
 
-* Microsoft.EntityFrameworkCore Version **5.0.17**
-* Microsoft.EntityFrameworkCore.Design Version **5.0.17**
-* Microsoft.EntityFrameworkCore.Tools Version **5.0.17**
-* Microsoft.EntityFrameworkCore.SqlServer Version **5.0.17**
-* Microsoft.AspNetCore.Authentication.JwtBearer **5.0.17**
+Prerequisites: Node.js compatible with Angular 14, .NET 5 SDK, and SQL Server.
 
-Install the required npm modules by entering below-mentioned commands in your Command Prompt:
-```sh
-npm install angular
-npm install @auth0/angular-jwt
-npm install ng-angular-popup
-```
+1. Create the `Ecommerce` database and apply the SQL scripts in `EcomDB Scripts/`. The included users are fictional development fixtures only.
+2. Configure the API connection string in `ProductWebAPI/ProductWebAPI/appsettings.json` for your local SQL Server instance.
+3. Set a local JWT signing key outside Git before starting the API:
 
-### Configuration
-* Run All the scripts that are present in [EcomDB Scripts](https://github.com/muthuviswanath/EcommerceCharlie/tree/master/EcomDB%20Scripts) inside your SQL Server Management Studio to create the Database.
-* Run the .NET Web API in [ProductWebAPI](https://github.com/muthuviswanath/EcommerceCharlie/tree/master/ProductWebAPI)
-* Enter the following command inside your Command Prompt in [Frontend](https://github.com/muthuviswanath/EcommerceCharlie/tree/master/Frontend)
-```sh
-ng serve --open
-```
+   ```bash
+   export Jwt__SigningKey='replace-with-a-long-random-local-value'
+   ```
+
+4. Start the API and frontend in separate terminals:
+
+   ```bash
+   dotnet run --project ProductWebAPI/ProductWebAPI/ProductWebAPI.csproj
+   ```
+
+   ```bash
+   cd Frontend
+   npm ci
+   npm start
+   ```
+
+The frontend calls the API at `http://localhost:33037/`. Adjust the frontend service base URLs if your local API runs on another address.
+
+## Development Notes
+
+- .NET 5 is end-of-support, so framework upgrades should be handled as a separate tested task.
+- The current authentication and authorization model is prototype-only. Do not deploy it or use real credentials.
+- No license has been selected. Do not assume permission to copy, modify, or redistribute this project.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).

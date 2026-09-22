@@ -1,3 +1,5 @@
 ProductWebAPI/.vs/
 ProductWebAPI/ProductWebAPI/obj/
 ProductWebAPI/ProductWebAPI/bin/
+ProductWebAPI/ProductWebAPI/appsettings.Local.json
+ProductWebAPI/ProductWebAPI/.env

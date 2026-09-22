@@ -31,6 +31,12 @@ namespace ProductWebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var jwtSigningKey = Configuration["Jwt:SigningKey"];
+            if (string.IsNullOrWhiteSpace(jwtSigningKey))
+            {
+                throw new InvalidOperationException("Jwt:SigningKey must be configured outside source control.");
+            }
+
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -46,7 +52,7 @@ namespace ProductWebAPI
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = "http://localhost:33037",
                     ValidAudience = "http://localhost:33037",
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("symmetricsecretkey$567"))
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSigningKey))
                 };
             });
             services.AddControllers();
