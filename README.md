@@ -9,7 +9,7 @@ An educational full-stack marketplace for browsing and purchasing local handloom
 - Users can register, sign in, browse products, manage a cart and wishlist, place orders, and view order history.
 - Administrators can manage products.
 
-## Application Preview
+## Preview
 
 | Sign in | Admin | Products |
 | --- | --- | --- |
